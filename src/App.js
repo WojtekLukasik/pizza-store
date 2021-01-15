@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
+  // const fetchPizzas = useSelector((state) => state.pizzaListReducer);
+  // const fetchSauces = useSelector((state) => state.saucesListReducer);
+  // const pizzas = fetchPizzas.map((pizza) => pizza.name);
+  // console.log(pizzas);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Pizzas?</h1>
+      <div></div>
     </div>
   );
 }

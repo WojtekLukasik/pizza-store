@@ -1,0 +1,29 @@
+.pizza__item {
+  width: inherit;
+  border: 2px solid black;
+  padding: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.pizza__item:hover {
+  cursor: pointer;
+}
+
+.pizza__name {
+  font-size: 3em;
+  font-weight: bold;
+  margin-right: 1em;
+  right: 0;
+}
+
+.pizza__ingredients {
+  flex-grow: 1;
+}
+
+.pizza__price {
+  font-size: 3em;
+  font-weight: bold;
+}

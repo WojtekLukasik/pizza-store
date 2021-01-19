@@ -1,0 +1,106 @@
+.pizza__editor {
+  width: 100%;
+  height: 50vh;
+  background-color: transparent;
+  border: 1px solid black;
+  margin-bottom: 1em;
+}
+
+.pizza__editor__body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+.pizza__editor__add__ingredients {
+  width: 100%;
+  height: 80%;
+}
+
+.pizza__editor__summary {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pizza__editor__summary__text {
+  margin-right: 10%;
+  font-size: 2em;
+}
+.pizza__editor__summary button {
+  width: 25%;
+  height: 50%;
+  background: transparent;
+  font-size: 1.5em;
+  border-style: none;
+  border: 2px solid black;
+}
+
+.pizza__editor__summary button:hover {
+  background-color: moccasin;
+}
+
+.add__ingredients__header {
+  width: 100%;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.ingredients__list__container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add__ingredients__list {
+  height: 100%;
+  width: 50%;
+  list-style: none;
+  border: 1px solid black;
+
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.ingredient__element {
+  height: 4em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ingredient__element:hover {
+  background-color: moccasin;
+}
+
+.ingredient__element__selected {
+  height: 4em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: skyblue;
+}
+
+.ingredient__name {
+  flex-grow: 1;
+  font-size: 2em;
+  padding-left: 0.5em;
+}
+
+.ingredient__price {
+  font-size: 2em;
+  padding-right: 0.5em;
+}

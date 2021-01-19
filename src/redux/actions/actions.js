@@ -1,5 +1,10 @@
 import axios from "axios";
 
+export const addItemToOrder = (item) => ({
+  type: "ADD ITEM",
+  payload: { item },
+});
+
 const fetchPizzasSuccess = (pizzas) => ({
   type: "FETCH_PIZZAS_SUCCESS",
   payload: { pizzas },

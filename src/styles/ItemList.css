@@ -1,0 +1,24 @@
+@keyframes appear {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.item__list__container {
+  min-width: 60%;
+  margin-left: 5em;
+  margin-right: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2em;
+  /* animation: appear 1.5s both; */
+}
+
+.item__list {
+  list-style: none;
+  width: 100%;
+}

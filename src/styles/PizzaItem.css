@@ -10,6 +10,7 @@
 
 .pizza__item:hover {
   cursor: pointer;
+  background-color: orange;
 }
 
 .pizza__name {

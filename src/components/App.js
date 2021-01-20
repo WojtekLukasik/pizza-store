@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
 
 import HomePage from "./HomePage";
 import Products from "./Products";
+import Order from "./Order";
 import ErrorPage from "./ErrorPage";
 import "../styles/App.css";
 
@@ -20,6 +21,7 @@ function App() {
           >
             <Route path="/" exact component={HomePage} />
             <Route path="/products" component={Products} />
+            <Route path="/order" component={Order} />
             <Route component={ErrorPage} />
           </AnimatedSwitch>
         </div>

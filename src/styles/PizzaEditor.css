@@ -40,7 +40,7 @@
 }
 
 .pizza__editor__summary button:hover {
-  background-color: moccasin;
+  background-color: orange;
 }
 
 .add__ingredients__header {
@@ -80,7 +80,7 @@
   align-items: center;
 }
 .ingredient__element:hover {
-  background-color: moccasin;
+  background-color: orange;
 }
 
 .ingredient__element__selected {
@@ -91,7 +91,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: skyblue;
+  background-color: orangered;
 }
 
 .ingredient__name {

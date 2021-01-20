@@ -14,8 +14,9 @@ const PizzaEditor = (props) => {
   const addToOrder = () => {
     const item = {
       id: v4(),
+      type: "PIZZA",
       name: props.name,
-      ingredients: props.ingredients,
+      ingredients: props.baseIngredients,
       additionalIngredients: additionalIngredients,
       price: totalPrice,
     };

@@ -5,6 +5,11 @@ export const addItemToOrder = (item) => ({
   payload: { item },
 });
 
+export const removeItemFromOrder = (id) => ({
+  type: "REMOVE ITEM",
+  payload: { id },
+});
+
 const fetchPizzasSuccess = (pizzas) => ({
   type: "FETCH_PIZZAS_SUCCESS",
   payload: { pizzas },

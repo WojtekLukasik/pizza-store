@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import ItemList from "./ItemList";
 import "../styles/Products.css";
+import orderReducer from "../redux/reducers/orderReducer";
 
 const Products = () => {
   const [selectedItem, setSelectedItem] = useState(null);
+  const orderSize = useSelector((state) => state.orderReducer.length);
+  console.log(orderSize);
   const selectItem = (props) => {
     const item = {
       name: props.name,
@@ -22,6 +26,12 @@ const Products = () => {
             <span className="header__text">NASZE PIZZE</span>
           </header>
           <ItemList selectItem={selectItem} />
+          <Link to="/order" style={{ textDecoration: "none" }}>
+            <button className="order__button">
+              <span className="order__button__text">Koszyk</span>
+              <span className="order__button__number">{orderSize}</span>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ const HomePage = () => {
             style={{ textDecoration: "none" }}
             className="navigation__text"
           >
-            <span>See our pizzas</span>
+            <span>Zamów pizze</span>
           </Link>
         </div>
       </div>

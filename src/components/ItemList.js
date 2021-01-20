@@ -37,6 +37,7 @@ const ItemList = (props) => {
         name={pizza.name}
         price={pizza.price}
         ingredients={ingredients}
+        baseIngredients={mapIngredients(ingredients, pizza.ingredients)}
       />
     </Collapsible>
   ));

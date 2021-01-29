@@ -2,7 +2,7 @@ import OrderElement from "./OrderElement";
 import "../styles/Order.css";
 
 const OrderList = (props) => {
-  const orderList = props.orderList.map((order) => (
+  const orderList = props.orderList.pizza.map((order) => (
     <OrderElement
       key={order.id}
       type={order.type}

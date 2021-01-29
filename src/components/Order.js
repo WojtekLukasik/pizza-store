@@ -1,63 +1,35 @@
-import { useSelector } from "react-redux";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+
+import { resetOrder } from "../redux/actions/actions";
 import OrderList from "./OrderList";
 import SauceList from "./SauceList";
 import "../styles/Order.css";
 
-const countSauces = (name, orderList) => {
-  let counter = 0;
-  orderList.forEach((el) => {
-    if (el.type === "SAUCE" && el.name === `sos ${name}`) {
-      counter += 1;
-    }
-  });
-  return counter;
-};
-
 const Order = (prop) => {
+  const [isButtonActive, setIsButtonActive] = useState(true);
+  const dispatch = useDispatch();
   const orderList = useSelector((state) => state.orderReducer);
   const sauceList = useSelector((state) => state.sauceListReducer);
-  const total = orderList.reduce((sum, { price }) => sum + price, 0);
+  const total = orderList.total;
 
   const handleSendOrder = () => {
-    if (orderList.length === 0) {
+    if (orderList.pizza.length === 0) {
       alert("Dodaj coś do zamówienia zanim zamowisz!");
     } else {
-      let order;
-      let pizza = [];
-      let sauce = [
-        {
-          id: "czosnkowy",
-          count: countSauces("czosnkowy", orderList),
-        },
-        {
-          id: "ostry",
-          count: countSauces("ostry", orderList),
-        },
-        {
-          id: "1000 wysp",
-          count: countSauces("1000 wysp", orderList),
-        },
-      ];
-      orderList.forEach((el) => {
-        if (el.type === "PIZZA") {
-          const item = {
-            id: el.id,
-            ingredients: [...el.ingredients, ...el.additionalIngredients],
-          };
-          pizza.push(item);
-        }
-      });
-      sauce = sauce.filter((s) => s.count > 0);
-      console.log(sauce);
-      sauce.length > 0
-        ? (order = { pizza, sauce, total })
-        : (order = { pizza, total });
-      //   console.log(order);
+      setIsButtonActive(false);
+      const order = {
+        pizza: [...orderList.pizza],
+        sauce: [...orderList.sauce],
+        total: orderList.total,
+      };
       axios
         .post("http://localhost:3333/api/order", order)
         .then((res) => {
-          console.log(res);
+          alert("Zamówienie wysłane!");
+          dispatch(resetOrder());
+          setIsButtonActive(true);
         })
         .catch((err) => {
           console.log(err);
@@ -75,11 +47,17 @@ const Order = (prop) => {
       </div>
       <div className="sauce__list__container">
         <h1>Sosy</h1>
-        <SauceList sauceList={sauceList} />
+        <SauceList sauceList={sauceList} sauceState={orderList.sauce} />
       </div>
       <div className="summary">
         <span>Suma: {total} PLN</span>
-        <button onClick={handleSendOrder}>Zamów</button>
+        {isButtonActive ? (
+          <button className="button__active" onClick={handleSendOrder}>
+            Zamów
+          </button>
+        ) : (
+          <button className="button__inactive">Zamów</button>
+        )}
       </div>
     </div>
   );

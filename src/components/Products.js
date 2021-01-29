@@ -1,22 +1,17 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import ItemList from "./ItemList";
 import "../styles/Products.css";
-import orderReducer from "../redux/reducers/orderReducer";
 
 const Products = () => {
-  const [selectedItem, setSelectedItem] = useState(null);
-  const orderSize = useSelector((state) => state.orderReducer.length);
-  console.log(orderSize);
+  const orderSize = useSelector((state) => state.orderReducer.numberOfItems);
   const selectItem = (props) => {
-    const item = {
+    return {
       name: props.name,
       price: props.price,
       ingredients: props.ingredients,
     };
-    setSelectedItem(item);
   };
   return (
     <div className="products__page__container">

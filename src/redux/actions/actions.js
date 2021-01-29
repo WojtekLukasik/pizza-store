@@ -1,13 +1,27 @@
 import axios from "axios";
 
-export const addItemToOrder = (item) => ({
-  type: "ADD ITEM",
+export const resetOrder = () => ({
+  type: "RESET",
+});
+
+export const addPizzaToOrder = (item) => ({
+  type: "ADD PIZZA",
   payload: { item },
 });
 
-export const removeItemFromOrder = (id) => ({
-  type: "REMOVE ITEM",
-  payload: { id },
+export const addSauceToOrder = (item) => ({
+  type: "ADD SAUCE",
+  payload: { item },
+});
+
+export const removeSauceFromOrder = (item) => ({
+  type: "REMOVE SAUCE",
+  payload: { item },
+});
+
+export const removePizzaFromOrder = (item) => ({
+  type: "REMOVE PIZZA",
+  payload: { item },
 });
 
 const fetchPizzasSuccess = (pizzas) => ({

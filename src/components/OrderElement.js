@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { removeItemFromOrder } from "../redux/actions/actions";
+import { removePizzaFromOrder } from "../redux/actions/actions";
 
 import "../styles/Order.css";
 
@@ -7,7 +7,7 @@ const OrderElement = (props) => {
   const dispatch = useDispatch();
   let ingredientsString = "";
   const handleRemoveItem = () => {
-    dispatch(removeItemFromOrder(props.id));
+    dispatch(removePizzaFromOrder(props));
   };
 
   if (props.type === "PIZZA") {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addItemToOrder } from "../redux/actions/actions";
+import { addPizzaToOrder } from "../redux/actions/actions";
 import { v4 } from "uuid";
 
 import IngredientsList from "./IngredientsList";
@@ -20,7 +20,7 @@ const PizzaEditor = (props) => {
       additionalIngredients: additionalIngredients,
       price: totalPrice,
     };
-    dispatch(addItemToOrder(item));
+    dispatch(addPizzaToOrder(item));
     setTotalPrice(props.price);
     setAdditionalIngredients([]);
   };
@@ -37,7 +37,6 @@ const PizzaEditor = (props) => {
     setTotalPrice(totalPrice - item.price);
     setAdditionalIngredients([...updatedIngredients]);
   };
-  console.log(additionalIngredients);
 
   return (
     <div className="pizza__editor">

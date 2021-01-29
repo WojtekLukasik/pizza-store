@@ -1,24 +1,39 @@
-import { useDispatch } from "react-redux";
-import { addItemToOrder } from "../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addSauceToOrder,
+  removeSauceFromOrder,
+} from "../redux/actions/actions";
 import { v4 } from "uuid";
 import "../styles/Order.css";
 
 const SauceElement = (props) => {
+  const count = props.sauceState.filter((el) => el.id === props.name)[0];
+
   const dispatch = useDispatch();
-  const handleClick = () => {
-    const item = {
-      id: v4(),
-      type: "SAUCE",
-      name: `sos ${props.name}`,
-      price: props.price,
-    };
-    dispatch(addItemToOrder(item));
+  const handleAdd = () => {
+    dispatch(addSauceToOrder(props));
   };
+  const handleRemove = () => {
+    dispatch(removeSauceFromOrder(props));
+  };
+
   return (
-    <li className="sauce__element" onClick={handleClick}>
+    <div className="sauce__element">
+      <span className="sauce__count">{count.count}</span>
       <span className="sauce__name">{props.name}</span>
       <span className="sauce__price">{props.price} PLN</span>
-    </li>
+
+      <button className="sauce__button" onClick={() => handleAdd()}>
+        +
+      </button>
+      {count.count > 0 ? (
+        <button className="sauce__button" onClick={() => handleRemove()}>
+          -
+        </button>
+      ) : (
+        <button className="inactive__button">-</button>
+      )}
+    </div>
   );
 };
 

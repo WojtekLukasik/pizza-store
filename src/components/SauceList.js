@@ -1,5 +1,6 @@
 import SauceElement from "./SauceElement";
 import "../styles/Order.css";
+
 const SauceList = (props) => {
   const sauceList = props.sauceList.map((sauce) => (
     <SauceElement
@@ -7,9 +8,10 @@ const SauceList = (props) => {
       id={sauce.id}
       name={sauce.name}
       price={sauce.price}
+      sauceState={props.sauceState}
     />
   ));
-  return <ul className="sauce__list">{sauceList}</ul>;
+  return <div className="sauce__list">{sauceList}</div>;
 };
 
 export default SauceList;
